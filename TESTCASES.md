@@ -124,6 +124,8 @@ User is redirected to the sign-in page (https://app.s4e.io/sign-in).
 **Expected Result:**  
 System shows a generic message that does not confirm whether the account exists (prevents account enumeration).
 
+---
+
 ## TC-FP-009
 Title: Sign Up navigation from forgot password flow
 
@@ -138,3 +140,34 @@ Steps:
 
 Expected Result:
 User is redirected to the Sign Up page.
+
+---
+
+## TC-FP-010
+**Title:** Submitting the form via Enter key triggers reset request
+
+**Precondition:** User is on forgot password page
+
+**Steps:**
+1. Navigate to https://app.s4e.io/forgot-password
+2. Enter a valid-looking email (e.g., "user@example.com")
+3. Press **Enter** while focus is on the Email field
+
+**Expected Result:**
+Form submission is triggered (same behavior as clicking "Send Reset Link").
+The page remains stable and shows the post-submit state/response.
+
+---
+
+## TC-FP-011
+**Title:** Rate limiting is enforced after repeated reset attempts
+
+**Precondition:** User is on forgot password page
+
+**Steps:**
+1. Navigate to https://app.s4e.io/forgot-password
+2. Enter a non-existing email address
+3. Click "Send Reset Link" repeatedly in a short period (e.g., 10+ times)
+
+**Expected Result:**
+The system enforces rate limiting and blocks excessive attempts (e.g., returns a 429 page/message).

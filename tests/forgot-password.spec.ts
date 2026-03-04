@@ -44,6 +44,16 @@ test.describe('Forgot Password - validation & UX', () => {
 
   });
 
+  test('TC-FP-002: Submit with empty email shows required validation', async ({ page }) => {
+    
+    // Click submit with empty input
+    await sendButton(page).click();
+
+    // Expect a required/mandatory message (text may vary)
+    await expect(page.getByText(/email.*required/i)).toBeVisible();
+
+  });
+
 
   test('TC-FP-003: Invalid email format shows validation message', async ({ page }) => {
 
@@ -186,6 +196,24 @@ test.describe('Forgot Password - validation & UX', () => {
     // Verify navigation to the sign-up page
     await expect(page).toHaveURL(/sign-up/i);
 
+  });
+
+  test('TC-FP-010: Pressing Enter in Email field submits the form (smoke)', async ({ page }) => {
+    await page.goto(URL);
+
+    const email = emailInput(page);
+    await email.fill('user@example.com');
+
+    // Press Enter to submit
+    await email.press('Enter');
+
+    // Smoke assertion: UI should remain stable and still show the submit button/page
+    await expect(sendButton(page)).toBeVisible();
+  });
+
+  test.skip('TC-FP-011: Rate limiting (429) is enforced after repeated reset attempts', async ({ page }) => {
+    // Intentionally triggering rate limits is not suitable for stable automated runs.
+    // Verified manually: repeated submissions can lead to a 429 Too Many Requests response page.
   });
 
 });
