@@ -132,3 +132,11 @@ Low
 
 ### Type
 Usability / Validation behavior
+
+### Additional Note
+
+While implementing the Playwright automation tests, this behavior required an additional workaround.
+
+Because validation is only triggered after a submit attempt, a helper function (`triggerFirstValidation`) was introduced in the test suite to simulate the initial submission and activate the validation state.
+
+This illustrates how the observed UI behavior directly influenced the automation strategy and test design.
