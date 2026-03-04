@@ -1,0 +1,23 @@
+{
+  "name": "s4e-playwright",
+  "version": "1.0.0",
+  "description": "s4e.io için Playwright otomasyon testleri, test case dokümantasyonu ve bug raporu.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elif-Tugce/s4e-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Elif-Tugce/s4e-playwright/issues"
+  },
+  "homepage": "https://github.com/Elif-Tugce/s4e-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.3"
+  }
+}
