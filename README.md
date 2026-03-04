@@ -1,2 +1,2 @@
 # s4e-playwright
-s4e.io için Playwright otomasyon testleri, test case dokümantasyonu ve bug raporu.
+Automated Playwright testing suite for s4e.io, including comprehensive test case documentation, formal bug reports, and UX improvement recommendations.
